@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import LoginForm from './components/LoginForm';
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: `http://localhost:8080/login`
+});
 
 function App() {
+
+  const [user, setUser] = useState({username: ""});
+
+  const logUser = async(credentials) => {
+    let res = await api.post('/', { username: credentials.username, password: credentials.password });
+  }
+
+  const Login = credentials => {
+    logUser(credentials);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {(user.username != "") ? (
+        <div>Hi</div>
+      ) : (
+        <LoginForm Login={Login} />
+      )}
     </div>
   );
 }
