@@ -3,7 +3,7 @@ import LoginForm from './components/LoginForm';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://localhost:8080/login`
+  baseURL: `https://localhost:8080/login`
 });
 
 function App() {
