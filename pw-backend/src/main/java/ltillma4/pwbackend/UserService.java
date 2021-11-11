@@ -19,8 +19,9 @@ public class UserService {
 
         ObfuscatePassword(user);
 
-        String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        int result = jdbcTemplate.update(sql, user.getUsername(), user.getPassword());
+        String sql = "INSERT INTO users (username, password) VALUES (\"" + user.getUsername() + "\", \"" + user.getPassword() + "\")";
+        System.out.println(sql);
+        int result = jdbcTemplate.update(sql);
 
         if (result > 0) {
             System.out.println("A new row has been inserted.");
