@@ -11,7 +11,7 @@ function App() {
   const [user, setUser] = useState({username: ""});
 
   const logUser = async(credentials) => {
-    let res = await api.post('/', { username: credentials.username, password: credentials.password });
+    await api.post('/', { username: credentials.username, password: credentials.password });
   }
 
   const Login = credentials => {
